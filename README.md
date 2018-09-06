@@ -2,7 +2,7 @@
 
 This project contains some sort of sample programs to demostrate use of java basic and advanced concepts. 
 
-### Markdown
+### Purpose
 
 Java Abstract Class and OOPS concepts.
 
