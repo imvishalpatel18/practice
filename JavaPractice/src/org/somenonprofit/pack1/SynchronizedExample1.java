@@ -1,5 +1,34 @@
 package org.somenonprofit.pack1;
 
+/**
+ * Demonstrates the behavior of putting class and object instance in sync block.<br>
+ * 
+ * 
+in run method one
+in run method four
+in run method two
+in run method three
+in sync block one
+1
+between sync
+in sync block threein instance sync block
+0
+in instance sync block
+0
+in instance sync block
+0
+1
+between sync
+in sync block two
+1
+between sync
+in sync block four
+1
+between sync
+in instance sync block
+0
+
+***/
 public class SynchronizedExample1 {
 
 	public static void main(String[] args) {
@@ -21,6 +50,7 @@ public class SynchronizedExample1 {
 				System.out.println("in sync block " + Thread.currentThread().getName());
 				System.out.println(A.a);
 			}
+			System.out.println("between sync");
 			synchronized (a) {
 				System.err.println("in instance sync block");
 				System.err.println(a.b);

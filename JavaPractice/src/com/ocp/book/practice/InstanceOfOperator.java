@@ -1,5 +1,19 @@
 package com.ocp.book.practice;
 
+/**
+ * Demonstrates that how instance of operator behaves with class hierarchy instance, super class or interface,
+ * and null also. <br>
+ * 
+ * Output:: <br>
+ * 
+true <br>
+true <br>
+false <br>
+false <br>
+
+ * @author VISHAL
+ *
+ */
 public class InstanceOfOperator {
 
 	public static void main(String[] args) {

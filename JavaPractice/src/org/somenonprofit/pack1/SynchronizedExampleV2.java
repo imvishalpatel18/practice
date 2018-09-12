@@ -1,5 +1,32 @@
 package org.somenonprofit.pack1;
 
+/**
+ * Demonstrate behavior of two sync block and in between some simple statement in a method.
+ * Output::
+ *  <br>
+in run method two <br>
+in run method three <br>
+in run method four <br>
+in run method one <br>
+Called by Threadtwo <br>
+Called by Threadthree <br>
+in sync block two <br>
+Called by Threadfour <br>
+Called by Threadone <br>
+Outer two <br>
+in sync block one <br>
+in instance sync blocktwo <br>
+in sync block four <br>
+Outer one <br>
+in instance sync blockone <br>
+in sync block three <br>
+Outer four <br>
+in instance sync blockfour <br>
+Outer three <br>
+in instance sync blockthree <br>
+
+**/
+
 public class SynchronizedExampleV2 {
 
 	public static void main(String[] args) {
@@ -22,7 +49,6 @@ public class SynchronizedExampleV2 {
 			synchronized (A.class) {
 				System.out.println("in sync block "
 						+ Thread.currentThread().getName());
-				System.out.println("Thread " +  Thread.currentThread().getName() + A.a);
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
@@ -31,11 +57,10 @@ public class SynchronizedExampleV2 {
 				}
 			}
 
-			System.out.println("Outer");
+			System.out.println("Outer " + Thread.currentThread().getName());
 			synchronized (a) {
-				System.err.println("in instance sync block"
+				System.out.println("in instance sync block"
 						+ Thread.currentThread().getName());
-				System.out.println("Thread " +  Thread.currentThread().getName() +  a.b);
 			}
 		}
 	}

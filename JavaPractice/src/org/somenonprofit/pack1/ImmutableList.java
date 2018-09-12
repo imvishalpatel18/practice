@@ -5,6 +5,23 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * demonstrates that List can be passed as immutable list in a method argument to disallow that method
+ * to modify that list, no add,remove,set operations allowed to that method on that list.
+ * If It tries to do, will throw UnsupportedOperationException.
+ * <br>
+ * Output  <br>
+list demo <br>
+vishal <br>
+done..2 <br>
+calling second time print <br>
+vishal <br>
+error adding element in immutable list <br>
+[vishal, patel-1, patel-2]  <br>
+
+ * @author VISHAL
+ *
+ */
 public class ImmutableList {
 
 	public static void main(String[] args) {
