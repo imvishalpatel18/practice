@@ -27,23 +27,30 @@ public class FruitsProblem {
 		int f2 = count2;
 		int f3 = count3;
 		
+		int counter = 3;
 		for (; f1 >= 0 && f2 >= 0 && f3 >= 0 ;) {
 			
 			int energy = calculateEnergy(f1, f2, f3);
 			int cost = calculateCost(f1, f2, f3, cost1, cost2, cost3);
 			System.out.println("energy="+energy);
-			System.err.println("cost="+cost);
+			System.out.println("cost="+cost);
 			if (min > cost) {
 				min = cost;
 			}
 			System.out.println("min=" + min);
 			if (energy == S) {
+				System.out.println(String.format("a=%d b=%d c=%d", f1, f2, f3));
 				break;
 			}
 			// TODO: condition for deciding which counter to decrement
-			f1--;
-			f2--;
-			f3--;
+			if (counter % 3 == 0) {
+				f3--;
+			} else if (counter % 2 == 0) {
+				f2--;
+			} else {
+				f1--;
+			}
+			counter++;
 		}
 		
 		return min;
