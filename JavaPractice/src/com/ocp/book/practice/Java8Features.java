@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.OptionalInt;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * 
@@ -39,6 +41,7 @@ public class Java8Features {
 		Java8Features app = new Java8Features();
 		app.filter(allData);
 		app.map(allData);
+		app.reduce();
 	}
 	public void filter(List<Data> list) {
 		System.out.println("Demo .filter method");
@@ -57,11 +60,18 @@ public class Java8Features {
 		long count = list.stream().map(item -> { return item.id ; }).filter(x -> x % 2 == 0).count();
 		System.out.println(count);
 		// convert List to Map where id would be key and name would be value
+		// here in map function Data::getName can work if we want to return name only
 		Map<Integer, String> map = list.stream().map(item -> { return item; } )
 			.collect(Collectors.toMap(
 					item -> { return item.id ; },  // works as KEY
 					item -> { return item.name; } // works as VALUE
 					));
 		System.out.println(map.get(new Integer(1)));
+	}
+	public void reduce() {
+		// Start range is inclusive, end range in exclusive
+		OptionalInt reduced =
+				  IntStream.range(1, 6).reduce((a, b) -> a + b);
+		System.out.println("Sum of 1,2,3,4...5 " + reduced);
 	}
 }
