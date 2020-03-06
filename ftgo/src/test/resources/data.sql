@@ -1,0 +1,1 @@
+insert into customer(id,username, password) values(1,'vishal','123');
