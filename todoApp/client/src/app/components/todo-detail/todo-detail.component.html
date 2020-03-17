@@ -1,0 +1,57 @@
+<div class="row pt-5">
+    <div class="col-md-12">
+        <form id="todoForm" #todoForm="ngForm" (ngSubmit)="onTodoSubmitForm(todoForm);" novalidat>
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">{{mode}} Todo</legend>
+                <div class="form-group row">
+                    <label for="title" class="col-md-2 col-form-label">Title</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" #title="ngModel" name="title"
+                            [(ngModel)]="todoDetail.title" placeholder="Title" required>
+                        <div [hidden]="title.valid || (title.pristine && !todoForm.submitted)" class="text-danger">
+                            Title is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="description" class="col-md-2 col-form-label">Description</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" #description="ngModel" name="description"
+                            [(ngModel)]="todoDetail.description" placeholder="Description" required>
+                        <div [hidden]="description.valid || (description.pristine && !todoForm.submitted)"
+                            class="text-danger">
+                            Description is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="event" class="col-md-2 col-form-label">Event Date</label>
+                    <div class="col-md-5">
+                        <!-- <input type="date" class="form-control" #event="ngModel" name="event" [(ngModel)]="todoDetail.event" placeholder="Event" required min="{{currentDate | date:'yyyy-MM-dd'}}">
+                            <div [hidden]="event.valid || (event.pristine && !todoForm.submitted)" class="text-danger">
+                              Event Date is required.
+                            </div> -->
+
+                        <label>
+                           
+                            <input [min]="currentDate" [owlDateTimeTrigger]="dt" [owlDateTime]="dt" class="form-control"
+                                #event="ngModel" name="event" [(ngModel)]="todoDetail.eventDate" placeholder="Event"
+                                required>
+                            <owl-date-time #dt></owl-date-time>
+                        </label>
+                        <div [hidden]="event.valid || (event.pristine && !todoForm.submitted)" class="text-danger">
+                            Event Date is required.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-7 text-right">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" (click)="onClickCancel()" class="btn btn-primary">Cancel</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

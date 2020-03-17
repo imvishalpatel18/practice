@@ -1,0 +1,37 @@
+    
+    <div class="row pt-5 text-right">
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary" (click)="onClickAddTodo()">Add Todo</button>
+            <button type="button" class="btn btn-primary" (click)="deleteMultiple()">Delete Todos</button>
+        </div>
+    </div>
+    
+    <div class="row pt-2">
+        <div class="col-md-12">
+            <table class="table table-bordered table-hover table-striped">
+                <thead class="table-primary">
+                    <tr>
+                        <th scope="col" class="text-center"></th>
+                        <th scope="col" class="text-center">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Event Date</th>
+                        <th scope="col" class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let todo of todos">
+                        <td> <input type="checkbox" [(ngModel)]="todo.checked"> </td>
+                        <td class="text-center">{{todo.id}}</td>
+                        <td>{{todo.title}}</td>
+                        <td>{{todo.description}}</td>
+                        <td>{{todo.eventDate |  date:'yyyy-MM-dd h:mm a' }}</td>
+                        <td width="150" class="text-center">
+                            <button type="button" class="btn btn-info btn-sm" (click)="onClickEditTodoDetail(todo.id)">Edit</button> 
+                            <button type="button" class="btn btn-danger btn-sm" (click)="onClickTodoDelete(todo.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
