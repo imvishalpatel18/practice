@@ -1,0 +1,59 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+    <mat-card-title *ngIf="!isEdit">Add Workout</mat-card-title>
+    <mat-card-title *ngIf="isEdit">Edit Workout</mat-card-title>
+    <form autocomplete="off" [formGroup]="workoutForm" (ngSubmit)="createWorkout()" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-card-content>
+
+        <mat-form-field>
+          <input matInput formControlName="title" [(ngModel)]="workout.title" type="text" required
+            placeholder="Please add title" id="Title">
+          <mat-error *ngIf="workoutForm.get('title').hasError('required')">Please enter title
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput formControlName="note" [(ngModel)]="workout.note" type="text" placeholder="Please add note"
+            id="note">
+
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput #caloriesBurnPerMin formControlName="caloriesBurnPerMin" step="0.1"  [(ngModel)]="workout.caloriesBurnPerMin" type="number" min="0"
+            placeholder="Calories Burnt Per Min" style="width: 80%">
+          <button class="btn btn-default" style="width: 10%" (click)="stepUp(caloriesBurnPerMin)">+</button>
+          <button class="btn btn-default" style="width: 10%" (click)="stepDown(caloriesBurnPerMin)">-</button>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select  formControlName="category" placeholder=" Choose an category" [(ngModel)]="selectedCategoryId" required>
+            <mat-option *ngFor="let option of categories" [value]="option.id">
+              {{option.name}}
+            </mat-option>
+          </mat-select>
+
+           <mat-error *ngIf="workoutForm.get('title').hasError('required')">Please enter title
+          </mat-error>
+        </mat-form-field>
+
+
+
+
+
+
+
+      </mat-card-content>
+      <mat-card-actions>
+
+        <button type="button" class="btn btn-default" *ngIf="isEdit" style="width: 100%" (click)="back()">Go Back</button>
+
+        <button class="btn btn-default" *ngIf="!isEdit" style="width: 100%">Add Workout</button>
+
+        <button class="btn btn-default" *ngIf="isEdit" style="width: 100%">Edit Workout</button>
+      </mat-card-actions>
+
+    </form>
+  </mat-card>
+</section>

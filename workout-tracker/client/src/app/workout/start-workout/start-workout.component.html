@@ -1,0 +1,47 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+
+  <mat-card fxFlex="500px" fxFlex.xs="100%">
+
+    <mat-card-title>Start Workout</mat-card-title>
+    <form autocomplete="off" [formGroup]="workoutActiveForm" (ngSubmit)="createStartWorkout()" fxLayout="column wrap"
+      fxLayoutAlign="center center" fxLayoutGap="10px">
+      <mat-card-content>
+
+        <mat-form-field>
+          <input matInput formControlName="title" [(ngModel)]="workout.title" type="text" readonly
+            placeholder="Please add title" id="Title">
+
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput formControlName="comment" [(ngModel)]="workoutActive.comment" type="text"
+            placeholder="Please add comment" id="note">
+
+        </mat-form-field>
+
+        <p-calendar [inputStyle]="{'width':'100%'}" 
+             class="time-input">
+          </p-calendar>
+
+          <p-calendar [inputStyle]="{'width':'100%'}" 
+          [timeOnly]="true" class="time-input">
+        </p-calendar>
+
+
+         
+
+
+      </mat-card-content>
+      <mat-card-actions>
+
+        <button class="btn btn-default" style="width: 100%">Start Workout</button>
+        <button type="button" class="btn btn-default" style="width: 100%" (click)="back()">Go
+          Cancel</button>
+
+
+
+      </mat-card-actions>
+
+    </form>
+  </mat-card>
+</section>
