@@ -11,7 +11,7 @@ import javax.persistence.Id;
 /**
  * Database entity of todo table.
  * 
- * @author vikas
+ * @author vishal.patel
  *
  */
 @Entity

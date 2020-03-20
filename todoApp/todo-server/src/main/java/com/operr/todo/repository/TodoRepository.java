@@ -7,7 +7,7 @@ import com.operr.todo.model.Todo;
 /**
  * Spring Data repository for the Todo entity
  * 
- * @author vikas.patel
+ * @author vishal.patel
  *
  */
 public interface TodoRepository extends JpaRepository<Todo, Long> {

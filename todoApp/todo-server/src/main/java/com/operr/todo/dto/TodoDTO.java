@@ -9,7 +9,7 @@ import com.operr.todo.util.ApplicationContextProvider;
 /**
  * Dto class for the Todo.
  * 
- * @author vikas.patel
+ * @author vishal.patel
  *
  */
 public class TodoDTO {

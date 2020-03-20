@@ -25,7 +25,7 @@ import com.operr.todo.service.TodoService;
 /**
  * REST controller for managing todo task.
  * 
- * @author vikas
+ * @author vishal.patel
  *
  */
 @RestController

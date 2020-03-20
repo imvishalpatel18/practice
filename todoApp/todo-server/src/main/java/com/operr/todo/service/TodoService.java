@@ -15,7 +15,7 @@ import com.operr.todo.repository.TodoRepository;
 /**
  * This class is responsible for handling all business layer logic of todo.
  * 
- * @author vikas
+ * @author vishal.patel
  *
  */
 @Service
