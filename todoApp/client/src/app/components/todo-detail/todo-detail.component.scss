@@ -19,3 +19,13 @@ legend.scheduler-border {
 .ng-invalid:not(form)  {
   border-left: 5px solid #FF0000; /* red */
 }
+
+.tag-chip {
+  display: inline-block;
+  padding: 0 15px;
+  height: 40px;
+  font-size: 16px;
+  line-height: 40px;
+  border-radius: 15px;
+  background-color: #f1f1f1;
+}

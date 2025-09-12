@@ -56,10 +56,20 @@ export class TodoDetailComponent implements OnInit {
     }
 
    
-  } else {
+    } else {
 
+   }
 }
-  }
+
+onCreateTag() {
+  console.log('some tab press');
+  var container = document.getElementById('tags-container');
+  var tag = document.getElementById('tags-container')['value'];
+  var tagSpan = document.createElement('span');
+  tagSpan.innerText = tag;
+  container.appendChild(tagSpan);
+}
+
 onClickCancel() {
   this.router.navigate(['/todo-list']);
 }
