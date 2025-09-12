@@ -112,4 +112,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private JWTConfigurer securityConfigurerAdapter() {
         return new JWTConfigurer(tokenProvider);
     }
+    
+    public static void main(String[] args) {
+		String pwd = "$2a$10$zu/Z24ibou5jl7KelrEZUeqUQozBlyShFQS6dZEhujb6KznoNqnNu";
+		System.out.println(new BCryptPasswordEncoder().matches("123456", pwd));
+	}
 }
